@@ -4,13 +4,14 @@ server:
 ---
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: admin
-    exchange:
-      producer: ex.producer.message
-    routing-key:
-      producer: rk.producer.message
-    deadletter:
-      producer: dl;producer.message
+    request: 
+      host: localhost
+      port: 5672
+      username: admin
+      password: admin
+      exchange:
+        producer: ex.producer.message
+      routing-key:
+        producer: rk.producer.message
+      deadletter:
+        producer: dl;producer.message
