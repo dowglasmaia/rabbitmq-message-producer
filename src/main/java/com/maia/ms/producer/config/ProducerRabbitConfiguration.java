@@ -1,4 +1,4 @@
-package configuration;
+package com.maia.ms.producer.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,27 +11,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProducerRabbitConfiguration {
 
-	@Value("${spring.rabbitmq.request.routing-key.producer}")
+	@Value("${spring.rabbitmq.routing-key.producer}")
 	private String queue;
 
-	@Value("${spring.rabbitmq.request.exchange.producer}")
+	@Value("${spring.rabbitmq.exchange.producer}")
 	private String exchange;
 
-	@Value("${spring.rabbitmq.request.deadletter.producer}")
+	@Value("${spring.rabbitmq.deadletter.producer}")
 	private String deadletter;
 
 	@Bean
-	private DirectExchange exchange() {
+	public DirectExchange exchange() {
 		return new DirectExchange(exchange);
 	}
 
 	@Bean
-	private Queue deadletter() {
+	public Queue deadletter() {
 		return new Queue(deadletter);
 	}
 
 	@Bean
-	private Queue queue() {
+	public Queue queue() {
 		Map<String, Object> args = new HashMap<>();
 
 		args.put("x-dead-letter-exchange", exchange);

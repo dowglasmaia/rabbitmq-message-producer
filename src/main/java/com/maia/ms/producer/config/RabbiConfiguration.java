@@ -1,4 +1,4 @@
-package configuration;
+package com.maia.ms.producer.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
